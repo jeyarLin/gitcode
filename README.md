@@ -5,8 +5,9 @@
 
 #### 软件架构
 软件架构说明
-
-
+git add .
+git commit -m "typescript学习"
+git push
 #### 安装教程
 
 1.  创建项目，生成package.json文件：npm init
