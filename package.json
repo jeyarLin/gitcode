@@ -1,0 +1,19 @@
+{
+  "name": "gitcode",
+  "version": "1.0.0",
+  "description": "gitcode",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:zhuzi710/gitcode.git"
+  },
+  "author": {
+    "name": "jeyarLin",
+    "email": "jeyarLin@qq.com",
+    "url": "https://gitee.com/zhuzi710/gitcode"
+  },
+  "license": "ISC"
+}
