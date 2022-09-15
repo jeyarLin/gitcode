@@ -20,7 +20,7 @@ const clone = (oldObj) => {
       newObj = new Date(oldObj.getTime());
       // newObj = new oldObj.constructor(oldObj);
     } else if (type == "[object RegExp]") {
-      newObj = new Date(oldObj.source, getRegExp(oldObj));
+      newObj = new RegExp(oldObj.source, getRegExp(oldObj));
       if (oldObj.lastIndex) newObj.lastIndex = oldObj.lastIndex; // 有g的时候的坑
       // newObj = new oldObj.constructor(oldObj);
     } else {
