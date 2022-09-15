@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitee.com:zhuzi710/gitcode.git"
+    "url": "git@gitee.com:jeyarLin/gitcode.git"
   },
   "author": {
     "name": "jeyarLin",
     "email": "jeyarLin@qq.com",
-    "url": "https://gitee.com/zhuzi710/gitcode"
+    "url": "https://gitee.com/jeyarLin/gitcode"
   },
   "license": "ISC"
 }
