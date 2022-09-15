@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>hash Router</title>
+</head>
+<body>
+  <div>npm install http-server -g</div>
+  <div>命令行中进入目标文件夹（也就是需要启动服务的文件夹），输入如下命令：</div>
+  <div>http-server -p 8001</div>
+  <div>本地服务器就启动起来了，默认端口为8080</div>
+  <div>http://127.0.0.1:8001/hashRouter.html</div>
+  <div>hash</div>
+  <button id="btn1">修改 hash</button>
+  <script>
+    /**
+     * hash变化，包括
+     * JS 修改 url
+     * 手动 修改 url hash
+     * 浏览器 前进、后退
+    */
+    window.onhashchange = (event) => {
+      console.log('oldUrl', event.oldURL);
+      console.log('newUrl', event.newURL);
+      console.log('hash:', location.hash);
+    }
+    // 页面初次加载，获取hash
+    document.addEventListener('DOMContentLoaded',()=>{
+      console.log('hash:', location.hash);
+    })
+    // JS 修改 url hash
+    document.getElementById('btn1').addEventListener('click',()=>{
+      location.href='#/index'
+    })
+  </script>
+</body>
+</html>

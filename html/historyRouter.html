@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>history Router</title>
+</head>
+<body>
+  <div>npm install http-server -g</div>
+  <div>命令行中进入目标文件夹（也就是需要启动服务的文件夹），输入如下命令：</div>
+  <div>http-server -p 8001</div>
+  <div>本地服务器就启动起来了，默认端口为8080</div>
+  <div>http://127.0.0.1:8001/historyRouter.html</div>
+  <div>history</div>
+  <button id="btn1">修改 history</button>
+  <script>
+    /**
+     * history变化，包括
+     * JS 修改 url
+     * 手动 修改 url history
+     * 浏览器 前进、后退
+    */
+    // 页面初次加载，获取history
+    document.addEventListener('DOMContentLoaded',()=>{
+      console.log('history:', location.pathname);
+    })
+    // JS 修改 url history
+    document.getElementById('btn1').addEventListener('click',()=>{
+      const state = { name:'page1', id: 2 };
+      console.log('切换路由到:page1');
+      history.pushState(state,'','page1');
+    })
+    // 前进、后退
+    window.onpopstate = (event) => {
+      console.log('onpopstate:', event.state, location.pathname);
+    }
+  </script>
+</body>
+</html>
