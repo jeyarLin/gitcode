@@ -7,8 +7,8 @@ const getRegExp = (re) => {
 };
 const clone = (oldObj) => {
   // 维护2个数组
-  oldList = [];
-  newList = [];
+  let oldList = [];
+  let newList = [];
   const _clone = (oldObj) => {
     if (oldObj === null) return null;
     if (typeof oldObj !== "object") return oldObj;
