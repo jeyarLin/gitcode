@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue2-create</title>
+</head>
+<body>
+  <!-- <a href="https://www.bilibili.com/video/BV15D4y1o73Z?p=2&vd_source=041ff37289523f2743b1b51ac912f149">【学前端不会VUE？但就是必须懂VUE原理】</a> -->
+  <div id="app">
+    <h2>{{person.name}} --- {{person.age}}</h2>
+    <h3>{{person.fav}}</h3>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <h3>{{msg}}</h3>
+    <div v-text="msg"></div>
+    <div v-text="person.fav"></div>
+    <div v-html="htmlStr"></div>
+    <input type="text" v-model="msg">
+    <button v-on:click="handleClick">on click</button>
+    <button @click="handleClick">@ click</button>
+  </div>
+  <script src="./JVue.js"></script>
+  <script>
+    let vm = new JVue({
+      el:"#app",
+      data:{
+        person:{
+          name:'jeyar',
+          age:18,
+          fav:"篮球"
+        },
+        msg:"学习MVVM实现原理",
+        htmlStr:'hello'
+      },
+      methods: {
+        handleClick(){
+          console.log(this)
+        }
+      },
+    });
+  </script>
+</body>
+</html>
