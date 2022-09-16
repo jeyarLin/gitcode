@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>Get POST</div>
+  <form action="https://www.imooc.com/api/http/search/suggest" method="GET" enctype="applition/x-www-form-urlencoded ">
+    <input type="text" name="words" value="js">
+    <input type="submit" value="提交">
+  </form>
+  <script type="module">
+    /**
+     * GET
+     */
+    // const url = 'https://www.imooc.com/api/http/search/suggest?words=js';
+    const url = `https://www.imooc.com/api/http/search/suggest?words=${encodeURIComponent('前端')}`;
+    // encodeURIComponent 携带的数据有非字母，需要编码
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if(xhr.readyState!==4) return;
+      if( (xhr.status>=200&&xhr.status<300) || xhr.status===304 ){
+        console.log(xhr.responseText);
+        console.log(typeof xhr.responseText);
+        console.log(JSON.parse(xhr.responseText));
+        // console.log(JSON.parse(xhr.responseText).data);
+      }
+    }
+    // GET
+    // xhr.open('GET',url,true);
+
+    // 1
+    // xhr.responseType='';
+    // xhr.responseType='text';
+    // xhr.responseType='json'; // 响应的格式
+
+    // 2
+    xhr.timeout = 10;//超时 设置 毫秒 ie6-7不支持 ie8支持
+
+    // 3 withCredentials 是否携带 cookie 信息
+    // xhr.withCredentials = true;
+
+    // 4 setRequestHeader
+    // applition/x-www-form-urlencoded 
+    // 
+    xhr.setRequestHeader('Content-Type','applition/json'); // POST 对象入参 json
+
+    // xhr.send(null);
+
+    // POST
+    // xhr.open('POST',url,true);
+    // xhr.send('wname=ok&kname=no');
+
+    // JSON
+    /**
+     * 简单值形式 字符串必须用双引号，不能用undefined，不能注释
+     * 对象形式 属性必须使用字符串双引号
+     * 数组形式
+     */
+    // xhr.open('GET','./ajax.json',true); // 简单值形式
+    // xhr.open('GET','./ajax2.json',true); // 对象形式
+    // xhr.open('GET','./ajax3.json',true); // 数组形式
+    // xhr.send(null);
+   
+
+    // POST
+    // xhr.open('POST',url,true);
+    // xhr.send(JSON.stringify({
+    //   name:'ss',
+    //   age:'bb'
+    // }));
+
+    /**
+     * 使用 JSON.parse() JSON.stringify() 封装 localStorage
+     */
+    import {set, get, remove, clear} from './storage.js'
+    set('zs',{
+      name:'张三',
+      age: 13
+    });
+    set('ss',"ddd");
+    console.log(get('zs'));
+    remove('ss');
+    clear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * 跨域 浏览器 同源策略
+     * 协议 域名 端口
+     * https（协议）://www.imooc.com（域名）:433（端口）/course/list（路径）
+     * CORS跨域 后端配置
+     * Access-Control-Allow-Origin: *
+     * Access-Control-Allow-Origin: http://127.0.0.1:8001/
+     * CORS跨域过程
+     * 1.浏览器发送请求
+     * 2.后端在响应头中添加 Access-Control-Allow-Origin 头信息
+     * 3.浏览器接收到响应
+     * 4.如果是同域下的请求，浏览器不会额外做什么，这次前后端通信就圆满了
+     * 5.如果是跨域请求，浏览器会从响应头中查找是否允许跨域访问
+     * 6.如果允许跨域访问，通信圆满完成
+     * 7.如果没找到或不包含想要跨域的域名，就丢弃响应结果
+     * CORS兼容性
+     * IE10及以上可以使用
+     */
+
+    // JSONP 跨域
+    /**
+     * JSONP 跨域原理
+     * script 标签跨域不会被浏览器阻止
+     * JSONP 注意就是利用 script 标签，加载跨域文件
+     * JSONP 实现跨域
+     * https://www.imooc.com/api/http/jsonp?callback=handleResponse
+     */
+    //  handleResponse({ "code": 200, "data": [ { "word": "jsp" }, { "word": "js" }, { "word": "json" }, { "word": "js 入门" }, { "word": "jstl" } ] });
+
+    // 手动加载 JSONP
+    // const handleResponse = (data) => {
+    //   console.log(data);
+    // }
+
+    // 动态加载 JSONP
+    let script = document.createElement('script');
+    script.src = 'https://www.imooc.com/api/http/jsonp?callback=handleResponse';
+    document.body.appendChild(script);
+  </script>
+  <!-- <script src="https://www.imooc.com/api/http/jsonp?callback=handleResponse"></script> -->
+</body>
+</html>
