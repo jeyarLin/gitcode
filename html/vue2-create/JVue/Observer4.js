@@ -9,7 +9,7 @@ class Watcher {
   getOldVal() {
     Dep.target = this; // 挂载
     const oldVal = compileUtil.getVal(this.expr, this.vm);
-    Dep.taret = null;
+    Dep.target = null;
     return oldVal;
   }
   update() {
