@@ -4,11 +4,6 @@ const compileUtil = {
       return data[currentVal];
     }, vm.$data);
   },
-  setVal(expr, vm, newVal) {
-    return expr.split(".").reduce((data, currentVal) => {
-      data[currentVal] = newVal;
-    }, vm.$data);
-  },
   getContentVal(expr, vm) {
     return expr.replace(/\{\{(.+?)\}\}/g, (...args) => {
       return this.getVal(args[1], vm);
@@ -42,14 +37,8 @@ const compileUtil = {
   },
   model(node, expr, vm) {
     const value = this.getVal(expr, vm);
-    // 绑定更新函数 数据=>视图
     new Watcher(vm, expr, (newVal) => {
       this.updater.modelUpdater(node, newVal);
-    });
-    // 视图=>数据=>视图
-    node.addEventListener("input", (e) => {
-      // 设置值
-      this.setVal(expr, vm, e.target.value);
     });
     this.updater.modelUpdater(node, value);
   },
@@ -163,20 +152,7 @@ class JVue {
       // 1.实现一个数据观察者
       new Observer(this.$data);
       // 2.实现一个指令解析器
-      new Compile(this.$el, this);
-      this.proxyData(this.$data);
-    }
-  }
-  proxyData(data) {
-    for (const key in data) {
-      Object.defineProperty(this, key, {
-        get() {
-          return data[key];
-        },
-        set(newVal) {
-          data[key] = newVal;
-        },
-      });
+      let com = new Compile(this.$el, this);
     }
   }
 }

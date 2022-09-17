@@ -1,5 +1,5 @@
 const compileUtil = {
-  getValue(expr, vm) {
+  getVal(expr, vm) {
     return expr.split(".").reduce((data, currentVal) => {
       return data[currentVal];
     }, vm.$data);
@@ -10,19 +10,19 @@ const compileUtil = {
     let value;
     if (expr.indexOf("{{") !== -1) {
       value = expr.replace(/\{\{(.+?)\}\}/g, (...args) => {
-        return this.getValue(args[1], vm);
+        return this.getVal(args[1], vm);
       });
     } else {
-      value = this.getValue(expr, vm);
+      value = this.getVal(expr, vm);
     }
     this.updater.textUpdater(node, value);
   },
   html(node, expr, vm) {
-    const value = this.getValue(expr, vm);
+    const value = this.getVal(expr, vm);
     this.updater.htmlUpdater(node, value);
   },
   model(node, expr, vm) {
-    const value = this.getValue(expr, vm);
+    const value = this.getVal(expr, vm);
     this.updater.modelUpdater(node, value);
   },
   on(node, expr, vm, eventName) {

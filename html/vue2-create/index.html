@@ -24,6 +24,7 @@
     <button v-on:click="handleClick">on click</button>
     <button @click="handleClick">@ click</button>
   </div>
+  <script src="./Observer.js"></script>
   <script src="./JVue.js"></script>
   <script>
     let vm = new JVue({
@@ -39,6 +40,7 @@
       },
       methods: {
         handleClick(){
+          this.$data.person.name = '学习MVVM';
           console.log(this)
         }
       },
