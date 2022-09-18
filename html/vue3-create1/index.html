@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./reactive.js"></script>
+  <script>
+    const state0 = reactive({name: 'jeyar',age:12});
+    const state1 = reactive({name: 'Lin'});
+    // 副作用: 访问属性，视图
+    /**
+     * effect 注册副作用函数，并执行，
+     * 触发 reactive get
+     * 触发 track 收集依赖 activeEffect
+     */ 
+    // 注册副作用函数
+    effect(function e0(){
+      console.log('e0执行了。。。',state0.name);
+    });
+    effect(function e1(){
+      console.log('e1执行了。。。',state0.age);
+    });
+    effect(function e2(){
+      console.log('e2执行了。。。',state1.name);
+    });
+
+    console.log(bucket)
+    // setTimeout(function(){
+    //   state0.name = 'jeyar0';
+    // },1000)
+    
+  </script>
+</body>
+</html>
