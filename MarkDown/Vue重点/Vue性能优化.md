@@ -1,0 +1,11 @@
+# Vue 性能优化
+- [优化相关](https://juejin.cn/post/6844903913410314247)
+- 路由懒加载
+- 异步组件
+- 图片懒加载
+- 虚拟滚动
+- [函数式组件](https://juejin.cn/post/7089241058508275725)
+- v-show,keep-alive,v-once,v-memo
+- 分批[渲染组件](https://juejin.cn/post/6922641008106668045#heading-5)
+- ssr
+- 预加载
