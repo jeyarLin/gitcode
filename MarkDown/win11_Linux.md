@@ -6,5 +6,5 @@
 ### git
 - 查看文件状态 git status
 - 新增 git add .
-- 提交 git common -m "提交说明"
+- 提交 git commit -m "提交说明"
 - 推送 git push
