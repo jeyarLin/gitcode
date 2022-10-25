@@ -2,7 +2,7 @@
  * 改变原数组
  * sort
  * reverse
- * splice splice(start, deleteCount, item1)
+ * splice 删除、新增 splice(start, deleteCount, item1)
  * push
  * pop
  * unshift
