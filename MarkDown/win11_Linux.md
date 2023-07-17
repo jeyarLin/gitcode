@@ -13,6 +13,14 @@
 - 新增 git add .
 - 提交 git commit -m "提交说明"
 - 推送 git push
+- 多人合作开发，其他开发人员提交了一次代码，我本地又有改动代码
+
+```js
+// 拉取远程分支并（有效rebase）合并
+$ git pull --rebase origin master
+// 推送到远程分支master
+$ git push origin master
+```
 
 ### npm yarn
 
