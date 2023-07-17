@@ -7,7 +7,7 @@
 
 ### git
 
-- git clone git@gitee.com:jeyarLin/gitcode.git
+- git clone https://github.com/vuejs/devtools.git
 - git --help
 - 查看文件状态 git status
 - 新增 git add .
